@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
+import CharacterList from './components/CharacterList';
+import CharacterDetails from './components/CharacterDetails';
+import { fetchCharacters } from './components/fetchCharacters' 
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchCharacters()
+    .then(data => {
+      setCharacters(data)
+      setLoading(false);});
+    }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route exact path='/'>
+        {loading
+          ? <h3>Loading...</h3> 
+          : <CharacterList characters={characters} />}
+      </Route>
+        <Route path='/character/:id'>
+          <CharacterDetails />
+        </Route>
+    </Router>
   );
 }
 

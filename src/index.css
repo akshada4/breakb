@@ -1,13 +1,111 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Cooper BT";
+  src: url(./font/cooperbt.otf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --font: "Cooper BT";
+  --btn-color: rgb(190, 190, 190);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+}
+
+.characters-list {
+  margin-left: 50px;
+  width: 570px;
+}
+
+.character-description {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.character-description a {
+    text-decoration: none;
+    color: black;
+    background: var(--btn-color);
+    border-radius: 4px;
+    grid-column: 2;
+    width: 200px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.character-description a:hover {
+  background-color: #1f8c85;
+  color: #e0e0e0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding-bottom: 5px;
+}
+
+.pagination {
+  width: 570px;
+  margin: 30px 50px;
+}
+
+.pagination-btn {
+  font-family: var(--font);
+  border: 0;
+  cursor: pointer;
+  padding: 15px 20px;
+  margin: 5px;
+}
+
+.character-details {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 25px;
+}
+
+.image-div {
+  width: 600px;
+}
+
+.character-details img {
+  width: 100%;
+}
+
+.image-div, .detailed-description {
+  display: inline-block;
+}
+
+.detailed-description div {
+  margin: 20px 0 20px 20px;
+  font-size: 18px;
+}
+
+.detailed-description div {
+  display: grid;
+  grid-template-columns: 20% 60%;
+}
+
+.detailed-description ul li {
+  margin-bottom: 10px ;
+}
+
+.detailed-description ul li:last-child {
+  margin-bottom: 0;
+}
+
+.seasons ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+h3 {
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
